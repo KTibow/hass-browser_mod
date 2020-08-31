@@ -3,15 +3,15 @@ import logging
 from homeassistant.helpers.entity import Entity, async_generate_entity_id
 
 from .const import (
-    DOMAIN,
-    DATA_DEVICES,
-    DATA_ALIASES,
-    DATA_ADDERS,
     CONFIG_DEVICES,
-    DATA_CONFIG,
-    CONFIG_PREFIX,
     CONFIG_DISABLE,
     CONFIG_DISABLE_ALL,
+    CONFIG_PREFIX,
+    DATA_ADDERS,
+    DATA_ALIASES,
+    DATA_CONFIG,
+    DATA_DEVICES,
+    DOMAIN,
 )
 
 _LOGGER = logging.getLogger(__name__)

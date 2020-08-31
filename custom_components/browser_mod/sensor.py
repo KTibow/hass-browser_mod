@@ -3,7 +3,7 @@ from datetime import datetime
 
 from homeassistant.const import STATE_UNAVAILABLE
 
-from .helpers import setup_platform, BrowserModEntity
+from .helpers import BrowserModEntity, setup_platform
 
 PLATFORM = "sensor"
 

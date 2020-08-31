@@ -1,7 +1,7 @@
 from aiohttp import web
 from homeassistant.components.http import HomeAssistantView
 
-from .const import FRONTEND_SCRIPT_URL, DATA_EXTRA_MODULE_URL
+from .const import DATA_EXTRA_MODULE_URL, FRONTEND_SCRIPT_URL
 
 
 def setup_view(hass):

@@ -1,5 +1,6 @@
 import logging
-from .const import DOMAIN, DATA_DEVICES, DATA_ALIASES, USER_COMMANDS
+
+from .const import DATA_ALIASES, DATA_DEVICES, DOMAIN, USER_COMMANDS
 
 _LOGGER = logging.getLogger(__name__)
 

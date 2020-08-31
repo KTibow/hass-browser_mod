@@ -1,17 +1,16 @@
 import logging
 
-from .mod_view import setup_view
 from .connection import setup_connection
-from .service import setup_service
 from .const import (
-    DOMAIN,
-    DATA_DEVICES,
-    DATA_ALIASES,
-    DATA_ADDERS,
     CONFIG_DEVICES,
+    DATA_ADDERS,
+    DATA_ALIASES,
     DATA_CONFIG,
+    DATA_DEVICES,
+    DOMAIN,
 )
-
+from .mod_view import setup_view
+from .service import setup_service
 
 _LOGGER = logging.getLogger(__name__)
 

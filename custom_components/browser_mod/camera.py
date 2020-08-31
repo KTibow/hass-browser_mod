@@ -1,11 +1,11 @@
+import base64
 import logging
 from datetime import datetime
-import base64
 
-from homeassistant.const import STATE_UNAVAILABLE, STATE_ON, STATE_OFF, STATE_IDLE
 from homeassistant.components.camera import Camera
+from homeassistant.const import STATE_IDLE, STATE_OFF, STATE_ON, STATE_UNAVAILABLE
 
-from .helpers import setup_platform, BrowserModEntity
+from .helpers import BrowserModEntity, setup_platform
 
 PLATFORM = "camera"
 

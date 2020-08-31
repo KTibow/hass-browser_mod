@@ -1,10 +1,10 @@
 import logging
 from datetime import datetime
 
-from homeassistant.const import STATE_UNAVAILABLE, STATE_ON, STATE_OFF
-from homeassistant.components.light import LightEntity, SUPPORT_BRIGHTNESS
+from homeassistant.components.light import SUPPORT_BRIGHTNESS, LightEntity
+from homeassistant.const import STATE_OFF, STATE_ON, STATE_UNAVAILABLE
 
-from .helpers import setup_platform, BrowserModEntity
+from .helpers import BrowserModEntity, setup_platform
 
 PLATFORM = "light"
 
