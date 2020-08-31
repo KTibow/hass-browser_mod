@@ -152,11 +152,9 @@ class BrowserMod {
             case "update":
                 this.update(msg);
                 break;
-
             case "debug":
                 this.debug(msg);
                 break;
-
             case "play":
                 this.play(msg);
                 break;
@@ -172,7 +170,6 @@ class BrowserMod {
             case "mute":
                 this.mute(msg);
                 break;
-
             case "toast":
                 this.toast(msg);
                 break;
@@ -191,11 +188,12 @@ class BrowserMod {
             case "set-theme":
                 this.set_theme(msg);
                 break;
-
             case "lovelace-reload":
                 this.lovelace_reload(msg);
                 break;
-
+            case "window-reload":
+                window.location.reload(false);
+                break;
             case "blackout":
                 this.blackout(msg);
                 break;
