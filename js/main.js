@@ -135,7 +135,7 @@ class BrowserMod {
 
         const pjson = require('../package.json');
         console.info(`%cBROWSER_MOD ${pjson.version} IS INSTALLED
-    %cDeviceID: ${deviceID}`,
+%cDeviceID: ${deviceID}`,
             "color: green; font-weight: bold", "");
     }
 
