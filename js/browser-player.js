@@ -1,58 +1,64 @@
-import { deviceID } from "card-tools/src/deviceId"
-import { moreInfo } from "card-tools/src/more-info"
+import {
+    deviceID
+} from "card-tools/src/deviceId"
+import {
+    moreInfo
+} from "card-tools/src/more-info"
 import "./browser-player-editor.js"
 
 const bases = [customElements.whenDefined('home-assistant-main'), customElements.whenDefined('hui-view')];
 Promise.race(bases).then(() => {
 
-const LitElement = customElements.get('home-assistant-main')
-  ? Object.getPrototypeOf(customElements.get('home-assistant-main'))
-  : Object.getPrototypeOf(customElements.get('hui-view'));
-const html = LitElement.prototype.html;
-const css = LitElement.prototype.css;
+    const LitElement = customElements.get('home-assistant-main') ?
+        Object.getPrototypeOf(customElements.get('home-assistant-main')) :
+        Object.getPrototypeOf(customElements.get('hui-view'));
+    const html = LitElement.prototype.html;
+    const css = LitElement.prototype.css;
 
-class BrowserPlayer extends LitElement {
+    class BrowserPlayer extends LitElement {
 
-  static get properties() {
-    return {
-      hass: {},
-    };
-  }
+        static get properties() {
+            return {
+                hass: {},
+            };
+        }
 
-  static getConfigElement() {
-    return document.createElement("browser-player-editor");
-  }
-  static getStubConfig() {
-    return {};
-  }
+        static getConfigElement() {
+            return document.createElement("browser-player-editor");
+        }
+        static getStubConfig() {
+            return {};
+        }
 
-  setConfig(config) {
-    this._config = config;
-  }
-  handleMute(ev) {
-    window.browser_mod.mute({});
-  }
-  handleVolumeChange(ev) {
-    const vol = parseFloat(ev.target.value);
-    window.browser_mod.set_volume({volume_level: vol});
-  }
-  handleMoreInfo(ev) {
-    moreInfo("media_player."+window.browser_mod.entity_id);
-  }
-  handlePlayPause(ev) {
-    if (window.browser_mod.player.paused)
-      window.browser_mod.play({});
-    else
-      window.browser_mod.pause({});
-  }
+        setConfig(config) {
+            this._config = config;
+        }
+        handleMute(ev) {
+            window.browser_mod.mute({});
+        }
+        handleVolumeChange(ev) {
+            const vol = parseFloat(ev.target.value);
+            window.browser_mod.set_volume({
+                volume_level: vol
+            });
+        }
+        handleMoreInfo(ev) {
+            moreInfo("media_player." + window.browser_mod.entity_id);
+        }
+        handlePlayPause(ev) {
+            if (window.browser_mod.player.paused)
+                window.browser_mod.play({});
+            else
+                window.browser_mod.pause({});
+        }
 
-  render() {
-    if(!window.browser_mod) {
-      window.setTimeout(() => this.requestUpdate(), 100);
-      return html``;
-    }
-    const player = window.browser_mod.player;
-    return html`
+        render() {
+            if (!window.browser_mod) {
+                window.setTimeout(() => this.requestUpdate(), 100);
+                return html ``;
+            }
+            const player = window.browser_mod.player;
+            return html `
     <ha-card>
       <div class="card-content">
       <ha-icon-button
@@ -95,10 +101,10 @@ class BrowserPlayer extends LitElement {
 
     </ha-card>
     `;
-  }
+        }
 
-  static get styles() {
-    return css`
+        static get styles() {
+            return css `
     paper-icon-button[highlight] {
       color: var(--accent-color);
     }
@@ -120,10 +126,10 @@ class BrowserPlayer extends LitElement {
       -ms-user-select: all;
     }
     `
-  }
+        }
 
-}
+    }
 
-if(!customElements.get("browser-player"))
-  customElements.define("browser-player", BrowserPlayer);
+    if (!customElements.get("browser-player"))
+        customElements.define("browser-player", BrowserPlayer);
 });

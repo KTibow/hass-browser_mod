@@ -6,10 +6,12 @@ from homeassistant.components.light import LightEntity, SUPPORT_BRIGHTNESS
 
 from .helpers import setup_platform, BrowserModEntity
 
-PLATFORM = 'light'
+PLATFORM = "light"
+
 
 async def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
     return setup_platform(hass, config, async_add_devices, PLATFORM, BrowserModLight)
+
 
 class BrowserModLight(LightEntity, BrowserModEntity):
     domain = PLATFORM
@@ -26,25 +28,25 @@ class BrowserModLight(LightEntity, BrowserModEntity):
     def state(self):
         if not self.connection.connection:
             return STATE_UNAVAILABLE
-        if self.data.get('blackout', False):
+        if self.data.get("blackout", False):
             return STATE_OFF
         return STATE_ON
 
     @property
     def is_on(self):
-        return not self.data.get('blackout', False)
+        return not self.data.get("blackout", False)
 
     @property
     def device_state_attributes(self):
         return {
-                "type": "browser_mod",
-                "deviceID": self.deviceID,
-                "last_seen": self.last_seen,
-                }
+            "type": "browser_mod",
+            "deviceID": self.deviceID,
+            "last_seen": self.last_seen,
+        }
 
     @property
     def supported_features(self):
-        if self.data.get('brightness', False):
+        if self.data.get("brightness", False):
             return SUPPORT_BRIGHTNESS
         return 0
 

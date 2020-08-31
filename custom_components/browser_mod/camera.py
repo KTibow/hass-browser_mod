@@ -7,10 +7,12 @@ from homeassistant.components.camera import Camera
 
 from .helpers import setup_platform, BrowserModEntity
 
-PLATFORM = 'camera'
+PLATFORM = "camera"
+
 
 async def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
     return setup_platform(hass, config, async_add_devices, PLATFORM, BrowserModCamera)
+
 
 class BrowserModCamera(Camera, BrowserModEntity):
     domain = PLATFORM
@@ -25,12 +27,12 @@ class BrowserModCamera(Camera, BrowserModEntity):
         self.schedule_update_ha_state()
 
     def camera_image(self):
-        return base64.b64decode(self.data.split(',')[1])
+        return base64.b64decode(self.data.split(",")[1])
 
     @property
     def device_state_attributes(self):
         return {
-                "type": "browser_mod",
-                "deviceID": self.deviceID,
-                "last_seen": self.last_seen,
-                }
+            "type": "browser_mod",
+            "deviceID": self.deviceID,
+            "last_seen": self.last_seen,
+        }

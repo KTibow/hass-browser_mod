@@ -3,8 +3,8 @@ from .const import DOMAIN, DATA_DEVICES, DATA_ALIASES, USER_COMMANDS
 
 _LOGGER = logging.getLogger(__name__)
 
-async def setup_service(hass):
 
+async def setup_service(hass):
     def handle_command(call):
         command = call.data.get("command", None)
         if not command:
@@ -27,11 +27,11 @@ async def setup_service(hass):
                 devices[t].send(command, **data)
 
     def command_wrapper(call):
-        command = call.service.replace('_','-')
+        command = call.service.replace("_", "-")
         call.data = dict(call.data)
-        call.data['command'] = command
+        call.data["command"] = command
         handle_command(call)
 
-    hass.services.async_register(DOMAIN, 'command', handle_command)
+    hass.services.async_register(DOMAIN, "command", handle_command)
     for cmd in USER_COMMANDS:
-        hass.services.async_register(DOMAIN, cmd.replace('-','_'), command_wrapper)
+        hass.services.async_register(DOMAIN, cmd.replace("-", "_"), command_wrapper)
