@@ -34,7 +34,7 @@ jobs:
         run: git pull || true
       - name: Run formatting
         run: |
-          python -m isort -n 3 --tc -v .
+          python -m isort -m 3 --tc -v .
           python -m black -v .
       - name: Commit files
         run: |
