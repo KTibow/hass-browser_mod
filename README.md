@@ -34,13 +34,13 @@ browser_mod:
 >   - url: /browser_mod.js
 >     type: module
 > ```
-> to your `ui_lovelace.yaml`.
+> to your `configuration.yaml`.
 > Don't worry about where to put browser_mod.js, the integration will handle that automatically, and please note that it's **not** `/local/browser_mod.js`.
 
 
 # Usage
 
-Here's a fantastic video summary of all `browser_mod` functions by Pinkywafer: [Youtube link](https://www.youtube.com/watch?v=atpIP2RYldA).
+Here's a fantastic video summary of all `browser_mod` functions by Pinkywafer: [YouTube link](https://www.youtube.com/watch?v=atpIP2RYldA).
 
 ## Devices
 The most important concept of `browser_mod` is the *device*.
@@ -179,7 +179,7 @@ It's state will be the state of the camera motion detector of the *device* (5 se
 
 `browser_mod` registers a number of services.
 
-All service calls have one parameter in common; `deviceID` which is a list of *devices* to execute the comand on. If `deviceID` is omitted, the command will be executed on **all** currenctly connected *devices*. `deviceID` may also contain aliases.
+All service calls have one parameter in common; `deviceID` which is a list of *devices* to execute the command on. If `deviceID` is omitted, the command will be executed on **all** currently connected *devices*. `deviceID` may also contain aliases.
 
 If a service is called from the frontend (e.g. by using the `call-service` tap action), a value of `this` in the `deviceID` list will be replaced with the ID of the *device* the call was made from.
 Alternatively, `deviceID: this` will also work.
@@ -192,7 +192,7 @@ All examples below are given in the syntax used for calling them from lovelace v
 service: browser_mod.debug
 ```
 
-Display a popup with the deviceID *and* a javascript alert with the deviceID on all connected *devices*.
+Display a popup with the deviceID *and* a JavaScript alert with the deviceID on all connected *devices*.
 
 ### set_theme
 
@@ -239,7 +239,7 @@ service_data:
 ```
 
 Display a toast notification on all devices.
-The optional parameter `duration:` determines the time (in ms) that the toast is shown. Set to 0 for persistent display. Default is 3000.
+The optional parameter `duration:` determines the time (in `ms`) that the toast is shown. Set to 0 for persistent display. Default is 3000.
 
 ### popup
 ```
@@ -427,4 +427,4 @@ Some of [my lovelace plugins](https://github.com/thomasloven/hass-config/wiki/My
 Basically, just replace `service_data` with `data` or `data_template`, whichever fits your needs.
 
 ---
-<a href="https://www.buymeacoffee.com/uqD6KHCdJ" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+<a href="https://www.buymeacoffee.com/uqD6KHCdJ" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important; width: auto !important;" ></a>
